@@ -11,24 +11,26 @@ const k = kaboom({
 
 // --- ASSET LOADING ---
 loadSprite("player", "player.png", {
-    sliceX: 4,
+    sliceX: 2,
+    sliceY: 2,
     anims: {
         idle: { from: 0, to: 0 },
-        down: { from: 0, to: 3, loop: true, speed: 8 },
-        left: { from: 0, to: 3, loop: true, speed: 8 },
-        right: { from: 0, to: 3, loop: true, speed: 8 },
-        up: { from: 0, to: 3, loop: true, speed: 8 },
+        walk: { from: 0, to: 3, loop: true, speed: 8 },
     },
 });
-loadSpriteAtlas("tileset.png", {
-    "floor": { x: 0, y: 0, width: 16, height: 16 },
-    "wall_top": { x: 16, y: 0, width: 16, height: 16 },
-    "wall_mid": { x: 16, y: 16, width: 16, height: 16 },
-    "ada_logo": { x: 0, y: 16, width: 16, height: 16 },
-    "terminal": { x: 32, y: 0, width: 16, height: 16 },
-    "book": { x: 32, y: 16, width: 16, height: 16 },
-    "scroll": { x: 48, y: 0, width: 16, height: 16 },
-    "altar": { x: 48, y: 16, width: 16, height: 16 },
+loadSprite("tileset", "tileset.png", {
+    sliceX: 4,
+    sliceY: 2,
+    anims: {
+        floor: 0,
+        wall_top: 1,
+        terminal: 2,
+        scroll: 3,
+        ada_logo: 4,
+        wall_mid: 5,
+        book: 6,
+        altar: 7,
+    },
 });
 loadSound("interact", "interact.mp3");
 
@@ -151,17 +153,17 @@ scene("main", () => {
         width: 16,
         height: 16,
         pos: vec2(60, 40),
-        "f": () => [sprite("floor"), area(), "floor"],
-        "w": () => [sprite("wall_mid"), area(), solid(), "wall"],
+        "f": () => [sprite("tileset", { anim: "floor" }), area(), "floor"],
+        "w": () => [sprite("tileset", { anim: "wall_mid" }), area(), solid(), "wall"],
         "@": () => [sprite("player"), area({width: 12, height: 12}), solid(), body(), "player"],
-        "i": () => [sprite("book"), area(), solid(), "interactive", { id: 'i' }],
-        "h": () => [sprite("scroll"), area(), solid(), "interactive", { id: 'h' }],
-        "t": () => [sprite("terminal"), area(), solid(), "interactive", { id: 't' }],
-        "e": () => [sprite("scroll"), area(), solid(), "interactive", { id: 'e' }],
-        "p": () => [sprite("book"), area(), solid(), "interactive", { id: 'p' }],
-        "c": () => [sprite("book"), area(), solid(), "interactive", { id: 'c' }],
-        "r": () => [sprite("altar"), area(), solid(), "interactive", { id: 'r' }],
-        "a": () => [sprite("ada_logo"), area(), solid(), "interactive", { id: 'a' }],
+        "i": () => [sprite("tileset", { anim: "book" }), area(), solid(), "interactive", { id: 'i' }],
+        "h": () => [sprite("tileset", { anim: "scroll" }), area(), solid(), "interactive", { id: 'h' }],
+        "t": () => [sprite("tileset", { anim: "terminal" }), area(), solid(), "interactive", { id: 't' }],
+        "e": () => [sprite("tileset", { anim: "scroll" }), area(), solid(), "interactive", { id: 'e' }],
+        "p": () => [sprite("tileset", { anim: "book" }), area(), solid(), "interactive", { id: 'p' }],
+        "c": () => [sprite("tileset", { anim: "book" }), area(), solid(), "interactive", { id: 'c' }],
+        "r": () => [sprite("tileset", { anim: "altar" }), area(), solid(), "interactive", { id: 'r' }],
+        "a": () => [sprite("tileset", { anim: "ada_logo" }), area(), solid(), "interactive", { id: 'a' }],
     };
 
     addLevel(map, levelConf);
@@ -169,7 +171,7 @@ scene("main", () => {
     // Replace top walls for better visual
     get("wall").forEach(w => {
         if (!get("wall").some(other => other.pos.y < w.pos.y && other.pos.x === w.pos.x)) {
-            w.use(sprite("wall_top"));
+            w.use(sprite("tileset", { anim: "wall_top" }));
         }
     });
      // Replace all floor tiles
@@ -186,23 +188,23 @@ scene("main", () => {
         if(player.paused) return;
         player.flipX(true);
         player.move(-MOVE_SPEED, 0);
-        player.play("left");
+        player.play("walk");
     });
     onKeyDown(["right", "d"], () => {
         if(player.paused) return;
         player.flipX(false);
         player.move(MOVE_SPEED, 0);
-        player.play("right");
+        player.play("walk");
     });
     onKeyDown(["up", "w"], () => {
         if(player.paused) return;
         player.move(0, -MOVE_SPEED,);
-        player.play("up");
+        player.play("walk");
     });
     onKeyDown(["down", "s"], () => {
         if(player.paused) return;
         player.move(0, MOVE_SPEED);
-        player.play("down");
+        player.play("walk");
     });
     
     onKeyRelease(["left", "right", "up", "down", "a", "d", "w", "s"], () => {
