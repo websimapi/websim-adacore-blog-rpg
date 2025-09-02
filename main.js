@@ -10,7 +10,6 @@ const k = kaboom({
 });
 
 // --- ASSET LOADING ---
-loadRoot("assets/");
 loadSprite("player", "player.png", {
     sliceX: 4,
     anims: {
@@ -120,7 +119,7 @@ const interactions = {
     'r': { // Renderer Altar
         messages: [
             "Outputting to SVG (package Rosetta_Renderer): This package handles producing the final SVG output. It defines a single high-level procedure: `Put_SVG_Rosettas`.",
-            "This separation of concerns is key: the math logic doesn’t know about SVG, and the renderer doesn’t care how the coordinates were generated.",
+            "This separation of concerns is key: the math logic doesn't know about SVG, and the renderer doesn't care how the coordinates were generated.",
             "The `Put_Path` procedure takes an array of coordinates and writes the corresponding SVG path string using `M` (moveto) for the first point and `L` (lineto) for the rest."
         ]
     },
