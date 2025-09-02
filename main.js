@@ -5,7 +5,7 @@ const k = kaboom({
     global: true,
     scale: 2,
     background: [0, 0, 0],
-    canvas: document.querySelector("#game-container"),
+    root: document.querySelector("#game-container"),
     touchToMouse: true, // Enable touch controls on mobile
 });
 
@@ -249,4 +249,3 @@ startButton.addEventListener("click", () => {
     startScreen.style.display = "none";
     go("main");
 });
-
