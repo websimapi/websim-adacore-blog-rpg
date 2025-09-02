@@ -10,7 +10,11 @@ const k = kaboom({
 });
 
 // --- ASSET LOADING ---
+// By providing the total width and height of the spritesheet, we help Kaboom
+// correctly calculate the size of each frame (e.g., 32 / 2 = 16px per frame).
 loadSprite("player", "player.png", {
+    width: 32,
+    height: 32,
     sliceX: 2,
     sliceY: 2,
     anims: {
@@ -18,7 +22,10 @@ loadSprite("player", "player.png", {
         walk: { from: 0, to: 3, loop: true, speed: 8 },
     },
 });
+// The tileset is 64px wide and 32px high, containing 16x16 tiles.
 loadSprite("tileset", "tileset.png", {
+    width: 64,
+    height: 32,
     sliceX: 4,
     sliceY: 2,
     anims: {
