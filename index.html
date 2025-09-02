@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdaCore Blog RPG</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Kaboom.js will create a canvas here -->
+    </div>
+    <div id="textbox-container" class="hidden">
+        <div id="textbox">
+            <p id="dialog-text"></p>
+        </div>
+        <div id="controls">
+            <button id="close-button">Next [space]</button>
+        </div>
+    </div>
+    <div id="intro-screen">
+        <h1>Ada: A Project-Based Exploration</h1>
+        <p>An interactive RPG based on the <a href="https://blog.adacore.com/introduction-to-ada-a-project-based-exploration-with-rosettas" target="_blank" rel="noopener noreferrer">AdaCore Blog Post</a> by Romain Gora.</p>
+        <button id="start-button">Start Quest</button>
+        <p class="controls-info">Use WASD or Arrow Keys to move.<br>Press SPACE to interact.</p>
+    </div>
+    <script type="importmap">
+    {
+        "imports": {
+            "kaboom": "https://unpkg.com/kaboom@3000.1.17/dist/kaboom.mjs"
+        }
+    }
+    </script>
+    <script type="module" src="main.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4c6229722a6346bc8eb5cb0e5eae5d41","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
+

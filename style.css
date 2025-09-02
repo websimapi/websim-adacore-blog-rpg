@@ -1,0 +1,155 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#game-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+#textbox-container {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 800px;
+    padding: 12px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 4px solid #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #fff;
+    z-index: 100;
+}
+
+#textbox-container.hidden {
+    display: none;
+}
+
+#dialog-text {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #fff;
+    white-space: pre-wrap; /* Allows wrapping */
+}
+
+#controls {
+    text-align: right;
+    margin-top: 10px;
+}
+
+#close-button {
+    background: none;
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 8px 12px;
+    font-family: 'Press Start 2P', cursive;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#close-button:hover {
+    background: #fff;
+    color: #000;
+}
+
+
+#intro-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#intro-screen h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #43b5a1;
+}
+
+#intro-screen p {
+    font-size: 12px;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+#intro-screen a {
+    color: #c4a1ff;
+    text-decoration: none;
+}
+#intro-screen a:hover {
+    text-decoration: underline;
+}
+
+#start-button {
+    background: #43b5a1;
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 15px 30px;
+    font-family: 'Press Start 2P', cursive;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    transition: transform 0.2s;
+}
+
+#start-button:hover {
+    transform: scale(1.1);
+}
+
+.controls-info {
+    font-size: 10px !important;
+    color: #888;
+}
+
+
+@media (max-width: 768px) {
+    #dialog-text {
+        font-size: 12px;
+    }
+    #intro-screen h1 {
+        font-size: 20px;
+    }
+    #intro-screen p {
+        font-size: 10px;
+    }
+}
+
