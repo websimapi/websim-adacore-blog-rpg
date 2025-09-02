@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>AdaCore Blog RPG</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,15 +10,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="game-container">
-        <!-- Kaboom.js will create a canvas here -->
-    </div>
-    <div id="textbox-container" class="hidden">
-        <div id="textbox">
-            <p id="dialog-text"></p>
-        </div>
-        <div id="controls">
-            <button id="close-button">Next [space]</button>
+    <!-- Kaboom.js canvas will be created here -->
+    <div id="ui-container">
+        <div id="textbox-container" class="hidden">
+            <div id="textbox">
+                <p id="dialog-text"></p>
+            </div>
+            <div id="controls">
+                <button id="close-button">Next [space]</button>
+            </div>
         </div>
     </div>
     <div id="intro-screen">
@@ -38,4 +38,3 @@
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4c6229722a6346bc8eb5cb0e5eae5d41","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
-
